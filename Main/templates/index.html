@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form action = "http://localhost:5000/Search" method = "post">
+		<p>Keywords:</p>
+		<input type = "text" name = "keywords"/>
+		<input type = "submit" value = "submit"/>
+	</form>
+		{% if authors %}
+			<table border = 1>
+		    	<tr>
+		    		<th>Author</th>
+		    		<th>Score</th>
+		    	</tr>
+		    {% for key, value in authors.items() %}
+		    	<tr>
+		    		<td>{{ key }}</td>
+		    		<td>{{ value['score'] }}</td>
+		    	</tr>
+		    {% endfor %}
+			</table>
+	    {% endif %}
+{% endblock %}
